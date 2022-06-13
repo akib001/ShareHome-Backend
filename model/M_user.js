@@ -18,7 +18,7 @@ class User {
         password: this.password,
       };
       const result = await db.collection("user").insertOne(data);
-
+      console.log(result);
       return result;
     } catch (err) {
       console.log(err);

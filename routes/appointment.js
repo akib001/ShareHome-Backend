@@ -8,7 +8,6 @@ const router = express.Router();
 const isAuth = require('../middleware/is-auth')
 
 
-
 router.get('/appointment', C_appointment.testFunc);
 router.get('/test', C_appointment.test2)
 router.post('/client/create/appointment', C_appointment.createAppointment)

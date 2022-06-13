@@ -1,11 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-
+require("dotenv").config();
 const mongoConnect = require('./util/database').mongoConnect;
 const appointment = require('./routes/appointment');
-
-
-
 
 
 const app = express();

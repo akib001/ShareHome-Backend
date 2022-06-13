@@ -5,7 +5,7 @@ const getDb = require("../util/database").getDb;
 const createPlace = async (data) => {
   //img, location, title, description, price, long,lat
   const db = getDb();
-  const result1 = await db.collection("places").insertOne(data);
+  const result = await db.collection("places").insertOne(data);
   return result;
 };
 
@@ -19,15 +19,13 @@ const editPlace = async (data) => {
         title: title,
         description: description,
         price: price,
-        
       },
     }
   );
-
   return result
 };
 
-const fetchSinglePlace = async(id) =>{
+const fetchSinglePlace = async(id) => {
     const db = getDb();
     const result = await db.collection("places").find({_id : new mongodb.ObjectId(id)}).next()
     .then(place=>{
@@ -68,11 +66,10 @@ const bookPlace = async(id, email) => {
       },
     }
   );
-
   return result
 }
 
-const deleteHostedPlace = async(id) => {
+const deleteHostedPlace = async (id) => {
   const db = getDb();
   const result = await db.collection("places").deleteOne( { _id: new mongodb.ObjectId(id)});
   return result

@@ -47,7 +47,7 @@ const login = async (req, res, next) => {
         throw error;
       }
       const token = jwt.sign({ email: loadedUser.email }, "privateKey", {
-        expiresIn: "3h",
+        expiresIn: "24h",
       });
       res.status(200).json({ token: token, userId: loadedUser._id.toString() });
     })
