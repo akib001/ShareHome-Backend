@@ -4,6 +4,7 @@ const C_appointment = require('../controller/C_appointment')
 const C_searchResult = require('../controller/C_searchResult')
 const C_host = require('../controller/C_host')
 const C_user = require('../controller/C_user')
+const C_homepage = require('../controller/C_homePage');
 const router = express.Router();
 const isAuth = require('../middleware/is-auth')
 
@@ -25,6 +26,8 @@ router.post('/fetchSinglePlace', C_host.fetchSinglePlace)
 router.post('/login', C_user.login )
 router.post('/bookPlace',isAuth, C_host.bookPlace)
 router.post('/deleteHostedPlace', C_host.deleteHostedPlace)
+
+router.get('/exploreNearby', C_homepage.getExploreNearby);
 
 
 module.exports = router;
